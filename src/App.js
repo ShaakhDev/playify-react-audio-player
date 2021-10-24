@@ -1,8 +1,11 @@
 import React, { lazy, Suspense, useState } from 'react';
 
-import Header from './components/Header';
-import SearchInput from './components/SearchInput';
-import { SongList } from './components/SongList';
+// import Header from './components/Header';
+const Header = lazy(() => import('./components/Header'))
+// import SearchInput from './components/SearchInput';
+const SearchInput = lazy(() => import('./components/SearchInput'))
+// import SongList from './components/SongList';
+const SongList = lazy(() => import('./components/SongList'))
 const Player = lazy(() => import('./components/Player'))
 
 
@@ -94,8 +97,8 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Suspense fallback={'Loading'}>
+    <Suspense fallback={'Loading'}>
+      <div className="App">
         <Header />
         <div className="container">
           <div className="content-box">
@@ -116,8 +119,8 @@ function App() {
             />
           </div>
         </div>
-      </Suspense>
-    </div>
+      </div>
+    </Suspense>
   );
 }
 

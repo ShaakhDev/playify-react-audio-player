@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react'
 import PlayingContext from '../Context'
 
-export const SongList = (props) => {
+export default function SongList(props) {
     //context
     const { isPlaying, setIsPlaying, audioRef } = useContext(PlayingContext)
 
@@ -31,7 +31,7 @@ export const SongList = (props) => {
                 }
             }
         })
-    }, [audioRef?.current?.id, isPlaying])
+    }, [audioRef?.current?.id, isPlaying, props.currentSongIndex])
 
 
     const getDurationsOfAudios = () => { //HAR BIR MP3 NING 'duration' QIYMATINI ANIQLAB APPJS DAGI QO'SHIQ OBYEKTIGA QO'SHIB QO'YADI 
