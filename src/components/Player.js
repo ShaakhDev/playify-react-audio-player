@@ -132,6 +132,7 @@ function Player(props) {
                 <input ref={progressBar} defaultValue={0} max={100} onChange={changeRange} type="range" className="progressbar" />
                 {/* duration time */}
                 <span className='time duration' >{(duration && !isNaN(duration)) && calculateTime(duration)}</span>
+                {/* volume icon  */}
                 {isMute ? (<SoundOff className="volume-icon" strokeWidth={1} />) : (<SoundOn className="volume-icon" strokeWidth={1} />)}
                 {/* volume progressbar */}
                 <div className="volume">

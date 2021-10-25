@@ -1,10 +1,10 @@
 import React, { lazy, Suspense, useState } from 'react';
 
-// import Header from './components/Header';
-const Header = lazy(() => import('./components/Header'))
-// import SearchInput from './components/SearchInput';
-const SearchInput = lazy(() => import('./components/SearchInput'))
 // import SongList from './components/SongList';
+// import Header from './components/Header';
+// import SearchInput from './components/SearchInput';
+const Header = lazy(() => import('./components/Header'))
+const SearchInput = lazy(() => import('./components/SearchInput'))
 const SongList = lazy(() => import('./components/SongList'))
 const Player = lazy(() => import('./components/Player'))
 
@@ -98,28 +98,28 @@ function App() {
 
   return (
     <Suspense fallback={'Loading'}>
-      <div className="App">
+
+      <div className="container">
         <Header />
-        <div className="container">
-          <div className="content-box">
-            <div className="songs-box">
-              <SearchInput />
-              <SongList
-                songs={songs}
-                currentSongIndex={currentSongIndex}
-                setCurrentSongIndex={setCurrentSongIndex}
-              />
-            </div>
-
-            <Player
-
+        <div className="content-box">
+          <div className="songs-box">
+            <SearchInput />
+            <SongList
+              songs={songs}
               currentSongIndex={currentSongIndex}
               setCurrentSongIndex={setCurrentSongIndex}
-              songs={songs}
             />
           </div>
+
+          <Player
+
+            currentSongIndex={currentSongIndex}
+            setCurrentSongIndex={setCurrentSongIndex}
+            songs={songs}
+          />
         </div>
       </div>
+
     </Suspense>
   );
 }

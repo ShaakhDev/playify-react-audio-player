@@ -10,6 +10,7 @@ export default function SongList(props) {
         getDurationsOfAudios()
     }, [])
 
+
     useEffect(() => {     //====> LISTDAGI QO'SHIQLARDAN BIRINI TANLAGANDA ULARNING STILIGA MANIPULYATSIYA QILISH UCHUN 
         const titleItems = document.querySelectorAll('.song__title')
         const indexItems = document.querySelectorAll('.song__index')
@@ -78,7 +79,7 @@ export default function SongList(props) {
                     <li key={item.id} className="song" onClick={() => chooseSong(index)}>
                         <span id={item.id} className="song__index">{item.id}</span>
                         <img className="song__poster" src={item.img} width={40} alt="" />
-                        <div>
+                        <div className="song__title-box">
                             <p id={item.id} className="song__title">{item.title}</p>
                             <span className="song__artist" >{item.artist}</span>
                         </div>
