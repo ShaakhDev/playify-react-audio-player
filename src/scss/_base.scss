@@ -61,6 +61,10 @@ body {
     background-repeat: no-repeat;
     overflow: hidden;
     height: 100vh;
+
+    @media only screen and (max-width: $bp-smallest) {
+        position: relative;
+    }
 }
 
 .header {
@@ -97,6 +101,7 @@ body {
         @media only screen and (max-width: $bp-smallest) {
             grid-template-columns: 100%;
             grid-template-rows: 1fr 1fr;
+
         }
 
         .songs-box {
