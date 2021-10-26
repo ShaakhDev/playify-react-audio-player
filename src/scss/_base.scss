@@ -8,7 +8,6 @@
     --color-text-subdude: #a7a7a7;
     --color-hover-song-bg: #2a2a2a;
     --color-current-song-bg: #ffffff49;
-
 }
 
 $bp-largest: 75em; // 1200px / 16px
@@ -25,7 +24,7 @@ $bp-extra-small: 21em; // 336px / 16px
     margin: 0;
     padding: 0;
     box-sizing: inherit;
-    font-family: 'Product Sans';
+    font-family: "Product Sans";
 }
 
 html {
@@ -57,7 +56,9 @@ body {
     box-sizing: border-box;
     // background: var(--color-bg-base);
     background: rgb(18, 18, 18);
-    background: linear-gradient(180deg, rgba(18, 18, 18, 1) 6%, rgba(21, 63, 36, 1) 100%);
+    background: linear-gradient(180deg,
+            rgba(18, 18, 18, 1) 6%,
+            rgba(21, 63, 36, 1) 100%);
     background-repeat: no-repeat;
     overflow: hidden;
     height: 100vh;
@@ -91,7 +92,6 @@ body {
     @media only screen and (max-width: $bp-smallest) {}
 
     .content-box {
-
         display: grid;
         grid-template-columns: 40% 60%;
         grid-template-rows: 95%;
@@ -101,17 +101,14 @@ body {
         @media only screen and (max-width: $bp-smallest) {
             grid-template-columns: 100%;
             grid-template-rows: 1fr 1fr;
-
         }
 
         .songs-box {
-            // width: %;
             color: var(--color-white);
             font-size: 3.2rem;
             padding: 2rem;
             background: var(--color-bg-highlight);
-            border-radius: .5rem;
-
+            border-radius: 0.5rem;
 
             @media only screen and (max-width: $bp-smallest) {
                 font-size: 4.4rem;
@@ -133,10 +130,9 @@ body {
                     display: none;
                 }
 
-
                 &__icon {
                     position: absolute;
-                    margin-left: .5rem;
+                    margin-left: 0.5rem;
                     color: var(--color-white);
                 }
 
@@ -147,19 +143,16 @@ body {
                 &__cross-icon {
                     position: absolute;
                     color: var(--color-bg-highlight);
-                    right: .5rem;
+                    right: 0.5rem;
                 }
-
 
                 input {
                     border: none;
                     outline: none;
-                    padding: .8rem .5rem .8rem 5rem;
+                    padding: 0.8rem 0.5rem 0.8rem 5rem;
                     font-size: 1.6rem;
                     border-radius: 0.3rem;
                     animation: animateInput 0.2s ease forwards;
-
-
 
                     @keyframes animateInput {
                         from {
@@ -174,14 +167,13 @@ body {
             }
 
             ::-webkit-scrollbar {
-                width: .5rem;
-
+                width: 0.5rem;
             }
 
             ::-webkit-scrollbar-thumb {
                 background: var(--color-scrollbar);
-                border-radius: .2rem;
-                transition: all .5s ease;
+                border-radius: 0.2rem;
+                transition: all 0.5s ease;
             }
 
             ::-webkit-scrollbar-thumb:hover {
@@ -204,7 +196,7 @@ body {
                     list-style-type: none;
                     align-items: center;
                     padding: 1rem 1.5rem;
-                    border-radius: .5rem;
+                    border-radius: 0.5rem;
                     cursor: pointer;
 
                     @media only screen and (max-width: $bp-smallest) {
@@ -245,7 +237,6 @@ body {
                             @media only screen and (max-width: $bp-smallest) {
                                 width: 4rem;
                             }
-
                         }
                     }
 
@@ -264,7 +255,7 @@ body {
                         flex-direction: column;
                         justify-content: space-around;
                         height: 100%;
-                        padding-left: .8rem;
+                        padding-left: 0.8rem;
 
                         @media only screen and (max-width: $bp-smallest) {
                             padding-left: 4rem;
@@ -279,12 +270,10 @@ body {
 
                         @media only screen and (max-width: $bp-smallest) {
                             font-size: 6.5rem;
-
                         }
 
                         @media only screen and (max-width: $bp-extra-small) {
                             font-size: 5.5rem;
-
                         }
                     }
 
@@ -303,7 +292,6 @@ body {
 
                         @media only screen and (max-width: $bp-smallest) {
                             font-size: 4.5rem;
-
                         }
                     }
 
@@ -313,20 +301,19 @@ body {
 
                         @media only screen and (max-width: $bp-smallest) {
                             display: none;
-
                         }
                     }
                 }
             }
         }
 
+        //mobile versiyasida player ochilganda ishlaydi==============>>>>>>
         .player.show-mobile-player {
             height: 100%;
-            transition: all .2s ease;
+            transition: all 0.2s ease;
             grid-template-columns: 1fr;
             grid-template-rows: 7fr 1fr 2fr 1fr;
             padding: 0 7rem;
-
 
             .collapse-btn {
                 width: auto;
@@ -366,7 +353,6 @@ body {
 
                     &:active {
                         background: var(--color-text-subdude);
-
                     }
                 }
 
@@ -402,7 +388,6 @@ body {
                         width: 2.5rem;
                         height: 2.5rem;
                         border-radius: 50%;
-
                     }
 
                     &:active::-webkit-slider-thumb,
@@ -411,8 +396,6 @@ body {
                         width: 4rem;
                         border-radius: 50%;
                         box-shadow: 0 0 0 2rem #ffffff3b;
-
-
                     }
 
                     &::-webkit-slider-thumb {
@@ -434,14 +417,15 @@ body {
             }
         }
 
+        //==============================================>>>>>>>>>>>>>>>>
         .player {
             margin-left: 2rem;
             color: var(--color-white);
             font-size: 2.4rem;
             padding: 2rem;
             background: var(--color-bg-highlight);
-            border-radius: .5rem;
-            transition: all .2s ease;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
 
             @media only screen and (max-width: $bp-smallest) {
                 width: 100%;
@@ -455,11 +439,7 @@ body {
                 height: 12vh;
                 // display: none;
                 z-index: 5;
-
-
             }
-
-
 
             .collapse-btn {
                 width: auto;
@@ -506,7 +486,7 @@ body {
                 .details-title {
                     font-size: 2.6rem;
                     font-weight: 700;
-                    letter-spacing: .1rem;
+                    letter-spacing: 0.1rem;
 
                     @media only screen and (max-width: $bp-smallest) {
                         font-size: 6rem;
@@ -517,7 +497,7 @@ body {
                     font-size: 2rem;
                     color: var(--color-text-subdude);
                     font-weight: 300;
-                    letter-spacing: .1rem;
+                    letter-spacing: 0.1rem;
 
                     @media only screen and (max-width: $bp-smallest) {
                         font-size: 5rem;
@@ -549,7 +529,6 @@ body {
                     &:hover {
                         transform: scale(1.04);
                     }
-
                 }
 
                 .skip-btn {
@@ -566,7 +545,6 @@ body {
                     &:hover {
                         color: var(--color-white);
                     }
-
                 }
             }
 
@@ -600,15 +578,15 @@ body {
                     margin-right: 1rem;
                     -webkit-appearance: none;
                     background: #a7a7a783;
-                    height: .3rem;
-                    border-radius: .1rem;
+                    height: 0.3rem;
+                    border-radius: 0.1rem;
                     position: relative;
                     --seek-before-width: 0;
                     cursor: pointer;
 
                     @media only screen and (max-width: $bp-smallest) {
                         margin: 0;
-                        height: .5rem;
+                        height: 0.5rem;
                     }
 
                     &::-webkit-slider-thumb {
@@ -616,11 +594,10 @@ body {
                         position: relative;
                         height: 1.4rem;
                         width: 1.4rem;
-                        border-radius: .7rem;
+                        border-radius: 0.7rem;
                         background: var(--color-white);
                         opacity: 0;
                         z-index: 5;
-
                     }
 
                     &::-webkit-slider-runnable-track {
@@ -633,12 +610,12 @@ body {
                         left: 0;
                         top: 0;
                         width: var(--seek-before-width);
-                        height: .3rem;
+                        height: 0.3rem;
                         background: var(--color-text-subdude);
-                        border-radius: .1rem;
+                        border-radius: 0.1rem;
 
                         @media only screen and (max-width: $bp-smallest) {
-                            height: .5rem;
+                            height: 0.5rem;
                         }
                     }
                 }
@@ -646,7 +623,7 @@ body {
                 .time {
                     font-size: 1.4rem;
                     color: var(--color-text-subdude);
-                    padding: 0 .5rem;
+                    padding: 0 0.5rem;
 
                     @media only screen and (max-width: $bp-smallest) {
                         display: none;
@@ -667,7 +644,6 @@ body {
                     }
                 }
 
-
                 .volume {
                     display: flex;
                     --volume-before-width: 50%;
@@ -687,9 +663,9 @@ body {
                         left: 0;
                         top: 0;
                         width: var(--volume-before-width);
-                        height: .3rem;
+                        height: 0.3rem;
                         background: var(--color-text-subdude);
-                        border-radius: .1rem;
+                        border-radius: 0.1rem;
                     }
 
                     .volume-progressbar:hover::before {
@@ -697,9 +673,6 @@ body {
                     }
                 }
             }
-
-
         }
-
     }
 }
