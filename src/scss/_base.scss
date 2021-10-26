@@ -324,8 +324,9 @@ body {
             height: 100%;
             transition: all .2s ease;
             grid-template-columns: 1fr;
-            grid-template-rows: 5fr 1fr 2fr;
-            padding: 0 6rem;
+            grid-template-rows: 7fr 1fr 2fr 1fr;
+            padding: 0 7rem;
+
 
             .collapse-btn {
                 width: auto;
@@ -348,6 +349,7 @@ body {
                 .details-title {
                     font-size: 8rem;
                     user-select: none;
+                    margin-top: 4rem;
                 }
 
                 .details-artist {
@@ -359,8 +361,8 @@ body {
                 .play-btn {
                     background: var(--color-white);
                     color: var(--color-bg-base);
-                    padding: 5.5rem 6.2rem;
-                    margin: 0 6.4rem;
+                    padding: 6.8rem 7.5rem;
+                    margin: 0 7rem;
 
                     &:active {
                         background: var(--color-text-subdude);
@@ -403,9 +405,8 @@ body {
 
                     }
 
-                    &:active::-webkit-slider-thumb // &:hover::-webkit-slider-thumb 
-
-                        {
+                    &:active::-webkit-slider-thumb,
+                    &:hover::-webkit-slider-thumb {
                         height: 4rem;
                         width: 4rem;
                         border-radius: 50%;
