@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect, useContext } from 'react'
-import { SoundOff, SoundOn } from 'akar-icons'
+import { SoundOff, SoundOn, ChevronDown, ChevronUp } from 'akar-icons'
+import { useMediaQuery } from 'react-responsive';
 import PlayerDetails from './PlayerDetails'
 import PlayerControls from './PlayerControls'
 import PlayingContext from '../Context'
+
 
 
 function Player(props) {
@@ -16,6 +18,9 @@ function Player(props) {
     const [duration, setDuration] = useState(0);
     const [currentTime, setCurrentTime] = useState(0)
     const [isMute, setIsMute] = useState(false)
+    const [clickCollapseBtn, setClickCollapseBtn] = useState(false)
+    const isMobile = useMediaQuery({ query: '(max-width:520px)' })
+
 
 
 
@@ -112,9 +117,25 @@ function Player(props) {
         document.querySelectorAll('.song').forEach(song => song.classList.remove('active'))
     }
 
-    return (
-        <div className="player">
+    const handleCollapseBtnClick = () => {
+        setClickCollapseBtn(!clickCollapseBtn);
+        showAndHideMobilePlayer()
+    }
 
+    const showAndHideMobilePlayer = () => {
+        document.querySelector('.player').classList.toggle('show-mobile-player')
+    }
+
+    return (
+        <div className="player" >
+            {/* player collapse button for mobile */}
+            {isMobile && (
+                <button className="btn collapse-btn">
+                    {clickCollapseBtn ? <ChevronDown onClick={handleCollapseBtnClick} /> : <ChevronUp onClick={handleCollapseBtnClick} />}
+
+                    {/* <ChevronDown/> */}
+                </button>
+            )}
             <audio autoPlay id={props.songs[props.currentSongIndex].id} src={props.songs[props.currentSongIndex].src} ref={audioRef} ></audio>
             <PlayerDetails
                 song={props.songs[props.currentSongIndex]}

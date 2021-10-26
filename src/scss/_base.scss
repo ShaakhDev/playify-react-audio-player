@@ -214,7 +214,10 @@ body {
 
                     &:hover {
                         background: var(--color-hover-song-bg);
-                        --color-test: #c22121;
+
+                        @media only screen and (max-width: $bp-smallest) {
+                            background: transparent;
+                        }
 
                         .song__artist {
                             color: var(--color-white) !important;
@@ -317,6 +320,118 @@ body {
             }
         }
 
+        .player.show-mobile-player {
+            height: 100%;
+            transition: all .2s ease;
+            grid-template-columns: 1fr;
+            grid-template-rows: 5fr 1fr 2fr;
+            padding: 0 6rem;
+
+            .collapse-btn {
+                width: auto;
+                background: transparent;
+                border: none;
+                color: var(--color-white);
+                position: absolute;
+                top: 6rem;
+                left: 6rem;
+            }
+
+            .player__details {
+                .details-img {
+                    display: block;
+                    width: 70rem;
+                    height: 70rem;
+                    border-radius: 50%;
+                }
+
+                .details-title {
+                    font-size: 8rem;
+                    user-select: none;
+                }
+
+                .details-artist {
+                    user-select: none;
+                }
+            }
+
+            .player__controls {
+                .play-btn {
+                    background: var(--color-white);
+                    color: var(--color-bg-base);
+                    padding: 5.5rem 6.2rem;
+                    margin: 0 6.4rem;
+
+                    &:active {
+                        background: var(--color-text-subdude);
+
+                    }
+                }
+
+                .skip-btn {
+                    display: block;
+                    font-size: 6rem;
+                    color: var(--color-white);
+
+                    &:active {
+                        color: var(--color-text-subdude);
+                    }
+                }
+            }
+
+            .player__progressbar {
+                position: relative;
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 3rem;
+                // padding: 0 6rem;
+
+                .progressbar {
+                    height: 1rem;
+                    user-select: none;
+
+                    &::-webkit-slider-thumb {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        border-radius: 50%;
+                    }
+
+                    &:focus::-webkit-slider-thumb,
+                    &:hover::-webkit-slider-thumb {
+                        height: 4rem;
+                        width: 4rem;
+                        border-radius: 50%;
+                        box-shadow: 0 0 0 2rem #ffffff3b;
+
+
+                    }
+
+                    &:before,
+                    &:hover::before {
+                        background: var(--color-white);
+                        height: 1rem;
+                    }
+
+                    &::-webkit-slider-thumb {
+                        opacity: 1;
+                    }
+                }
+
+                .time {
+                    position: absolute;
+                    display: flex;
+                    top: 3rem;
+                    font-size: 4rem;
+                    user-select: none;
+
+                    &.duration {
+                        right: 0;
+                    }
+                }
+            }
+        }
+
         .player {
             margin-left: 2rem;
             color: var(--color-white);
@@ -324,6 +439,7 @@ body {
             padding: 2rem;
             background: var(--color-bg-highlight);
             border-radius: .5rem;
+            transition: all .2s ease;
 
             @media only screen and (max-width: $bp-smallest) {
                 width: 100%;
@@ -332,11 +448,22 @@ body {
                 left: 0;
                 bottom: 0;
                 display: grid;
-                grid-template-columns: 4fr 1fr;
+                grid-template-columns: 1fr 6fr 2fr;
                 align-items: center;
                 height: 12vh;
                 // display: none;
                 z-index: 5;
+
+
+            }
+
+
+
+            .collapse-btn {
+                width: auto;
+                background: transparent;
+                border: none;
+                color: var(--color-white);
             }
 
             .player__details {
@@ -451,7 +578,12 @@ body {
                 margin-top: 2rem;
 
                 @media only screen and (max-width: $bp-smallest) {
-                    display: none;
+                    position: absolute;
+                    grid-template-columns: 100%;
+                    grid-template-rows: auto;
+                    top: 0;
+                    left: 0;
+                    margin: 0;
                 }
 
                 .progressbar:hover::-webkit-slider-thumb {
@@ -471,6 +603,11 @@ body {
                     position: relative;
                     --seek-before-width: 0;
                     cursor: pointer;
+
+                    @media only screen and (max-width: $bp-smallest) {
+                        margin: 0;
+                        height: .5rem;
+                    }
 
                     &::-webkit-slider-thumb {
                         -webkit-appearance: none;
@@ -497,6 +634,10 @@ body {
                         height: .3rem;
                         background: var(--color-text-subdude);
                         border-radius: .1rem;
+
+                        @media only screen and (max-width: $bp-smallest) {
+                            height: .5rem;
+                        }
                     }
                 }
 
@@ -504,6 +645,10 @@ body {
                     font-size: 1.4rem;
                     color: var(--color-text-subdude);
                     padding: 0 .5rem;
+
+                    @media only screen and (max-width: $bp-smallest) {
+                        display: none;
+                    }
                 }
 
                 .volume-icon {
@@ -553,5 +698,6 @@ body {
 
 
         }
+
     }
 }
