@@ -11,15 +11,23 @@ export default function SongList(props) {
     }, [])
 
 
+
+
     useEffect(() => {     //====> LISTDAGI QO'SHIQLARDAN BIRINI TANLAGANDA ULARNING STILIGA MANIPULYATSIYA QILISH UCHUN 
         const titleItems = document.querySelectorAll('.song__title')
-        const indexItems = document.querySelectorAll('.song__index')
         titleItems.forEach((item) => {    //BIROR QO'SHIQ TANLANGANDA TITLE NI RANGINI O'ZGARTIRADI
             item.classList.remove('playing-now')
             if (item.id === audioRef?.current?.id) {
                 item.classList.add('playing-now')
             }
         })
+    }, [audioRef?.current?.id, isPlaying, props.currentSongIndex])
+
+
+
+
+    useEffect(() => {
+        const indexItems = document.querySelectorAll('.song__index')
         indexItems.forEach((item) => {    //BIROR QO'SHIQ TANLANGANDA QO'SHIQNING TARTIB RAQAMINI ANIMATSIYAGA YOKI RANGINI O'ZGARTIRADI
             item.classList.remove('playing-now')
             item.innerHTML = item.id;
@@ -35,6 +43,7 @@ export default function SongList(props) {
     }, [audioRef?.current?.id, isPlaying, props.currentSongIndex])
 
 
+
     const getDurationsOfAudios = () => { //HAR BIR MP3 NING 'duration' QIYMATINI ANIQLAB APPJS DAGI QO'SHIQ OBYEKTIGA QO'SHIB QO'YADI 
         props.songs.map((song) => {
             const audio = document.createElement('audio');
@@ -46,6 +55,8 @@ export default function SongList(props) {
         })
     }
 
+
+
     const calculateTime = (secs) => { //YAXLITLANGAN SEKUNDLARNI 'MINUT:SEKUND' KO'RINISHIDA QAYTARADI
         const minutes = Math.floor(secs / 60)
         const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`
@@ -54,12 +65,16 @@ export default function SongList(props) {
         return `${returnedMinutes}:${returnedSeconds}`;
     }
 
+
+
     const chooseSong = (index) => { //RO'YXATDAGI QO'SHIQNI BOSGANDA PLAYERGA SHU QO'SHIQNI UZATADI.
         props.setCurrentSongIndex(index)
         setIsPlaying(true)
         activeBg(index)
 
     }
+
+
 
     const activeBg = (index) => { //QO'SHIQLAR RO'YXATIDAGI BOSILGAN QO'SHIQNING ORQA FONINI O'ZGARTIRADI
         const songs = document.querySelectorAll('li')
